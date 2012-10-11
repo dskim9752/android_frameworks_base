@@ -3142,7 +3142,14 @@ public final class Settings {
          * default: 1
          * @hide
          */
+
         public static final String STATUS_BAR_CLOCK = "status_bar_clock";
+
+        /** 
+         * Display second in the Clock
+         * @hide
+         */
+        public static final String CLOCK_USE_SECOND = "clock_use_second";
 
         /**
          * Whether to show the signal text or signal bars.
