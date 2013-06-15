@@ -2952,6 +2952,12 @@ public final class Settings {
 
         /**
          * Display percentage in text of the battery level on the status bar
+         * HALO enabled, should default to 0 (no, HALO is disabled)
+         * @hide
+         */
+        public static final String HALO_ENABLED = "halo_enabled";
+
+        /**
          * HALO, should default to 0 (no, do not show)
          * @hide
          */
