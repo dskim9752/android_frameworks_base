@@ -1919,7 +1919,7 @@ public final class Settings {
          * Control whether the screen off animation should be shown
          * @hide
          */
-        public static final String SCREEN_OFF_ANIMATION = "screen_off_animation";
+        public static final String SCREEN_OFF_ANIMATION_ENABLE = "screen_off_animation_enable";
 
         /**
          * Control which animation to use when turning the screen off
@@ -3764,6 +3764,12 @@ public final class Settings {
          */
         public static final String LOCKSCREEN_SEE_THROUGH = "lockscreen_see_through";
 
+
+        /**
+         * Defines the screen-off animation to display
+         * @hide
+         */
+        public static final String SCREEN_OFF_ANIMATION = "screen_off_animation";
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
