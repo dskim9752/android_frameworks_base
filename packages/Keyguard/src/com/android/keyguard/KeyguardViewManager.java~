@@ -40,9 +40,12 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+<<<<<<< HEAD
 import android.graphics.BitmapFactory;
+=======
 import android.content.ContentResolver;
 import android.database.ContentObserver;
+>>>>>>> Lockscreen: See through (1/2)
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;
 import android.graphics.PixelFormat;
@@ -738,12 +741,17 @@ public class KeyguardViewManager {
         if (isSeeThroughEnabled()) {
             return;
         } else {
+<<<<<<< HEAD
+            mWindowLayoutParams.flags &= ~WindowManager.LayoutParams.FLAG_SHOW_WALLPAPER;
+        }
         mWindowLayoutParams.format = show ? PixelFormat.TRANSLUCENT : PixelFormat.OPAQUE;
+=======
             if (show) {
                 mWindowLayoutParams.flags |= WindowManager.LayoutParams.FLAG_SHOW_WALLPAPER;
             } else {
                 mWindowLayoutParams.flags &= ~WindowManager.LayoutParams.FLAG_SHOW_WALLPAPER;
             }
+>>>>>>> Lockscreen: See through (1/2)
 
             mViewManager.updateViewLayout(mKeyguardHost, mWindowLayoutParams);
         }
