@@ -69,8 +69,6 @@
     <string name="quick_settings_network_adb_disabled_label">Disabled</string>
     <string name="quick_settings_network_adb_enabled_label">Enabled</string>
     <string name="quick_settings_bluetooth_multi_label">%1$d connected</string>
-    <string name="quick_settings_music_play">Play</string>
-    <string name="quick_settings_music_pause">Pause</string>
 
     <!-- [CHAR LIMIT=30] Location settings screen, high accuracy location mode -->
     <string name="location_mode_high_accuracy_title">High accuracy</string>
@@ -80,6 +78,8 @@
     <string name="location_mode_sensors_only_title">Device only</string>
     <!-- [CHAR LIMIT=30] Location settings screen, location off mode -->
     <string name="location_mode_location_off_title">Location off</string>
+    <string name="quick_settings_music_play">Play</string>
+    <string name="quick_settings_music_pause">Pause</string>
     <!-- Expanded desktop strings break the rules a bit - the icon identifies the feature, the string indicates current state -->
     <string name="quick_settings_expanded_desktop">Expanded</string>
     <string name="quick_settings_expanded_desktop_off">Normal</string>
