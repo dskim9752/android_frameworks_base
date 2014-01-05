@@ -18,16 +18,23 @@ public class GPSTile extends QuickSettingsTile implements LocationSettingsChange
 
     private QuickSettingsController mQsc;
     private LocationController mLocationController;
+<<<<<<< HEAD
     private int mCurrentMode;
+=======
     private boolean mLocationEnabled;
     private int mLocationMode;
+>>>>>>> QS: let's welcome LocationTile to 4.4
 
     public GPSTile(Context context, QuickSettingsController qsc, LocationController lc) {
         super(context, qsc);
 
+<<<<<<< HEAD
+        mContentResolver = mContext.getContentResolver();
         mLocationController = lc;
+=======
         mQsc = qsc;
         mLocationController = new LocationController(mContext);
+>>>>>>> QS: let's welcome LocationTile to 4.4
         mLocationController.addSettingsChangedCallback(this);
         mLocationMode = mLocationController.getLocationMode();
         mLocationEnabled = mLocationController.isLocationEnabled();
@@ -98,6 +105,7 @@ public class GPSTile extends QuickSettingsTile implements LocationSettingsChange
     }
 
     private synchronized void updateTile() {
+<<<<<<< HEAD
         int textResId;
         switch(mCurrentMode) {
         case Settings.Secure.LOCATION_MODE_SENSORS_ONLY:
@@ -117,12 +125,33 @@ public class GPSTile extends QuickSettingsTile implements LocationSettingsChange
             mDrawable = R.drawable.ic_qs_location_off;
             break;
         }
+=======
+        switch (mLocationMode) {
+            case Settings.Secure.LOCATION_MODE_SENSORS_ONLY:
+                mDrawable = R.drawable.ic_qs_location_on_gps;
+                break;
+            case Settings.Secure.LOCATION_MODE_BATTERY_SAVING:
+                mDrawable = R.drawable.ic_qs_location_on_wifi;
+                break;
+            case Settings.Secure.LOCATION_MODE_HIGH_ACCURACY:
+                mDrawable = R.drawable.ic_qs_location_on;
+                break;
+            case Settings.Secure.LOCATION_MODE_OFF:
+                mDrawable = R.drawable.ic_qs_location_off;
+                break;
+        }
         int textResId = mLocationEnabled ? R.string.quick_settings_location_label
                 : R.string.quick_settings_location_off_label;
+>>>>>>> QS: let's welcome LocationTile to 4.4
         mLabel = mContext.getText(textResId).toString();
     }
 
     @Override
+<<<<<<< HEAD
+    public void onLocationSettingsChanged(boolean locationEnabled) {
+        mCurrentMode = Settings.Secure.getInt(mContext.getContentResolver(),
+                Settings.Secure.LOCATION_MODE, Settings.Secure.LOCATION_MODE_OFF);
+=======
     public void onLocationSettingsChanged(boolean locationEnabled, int locationMode) {
         // collapse all panels in case the confirmation dialog needs to show up
         if ((mLocationMode == Settings.Secure.LOCATION_MODE_SENSORS_ONLY
@@ -134,6 +163,7 @@ public class GPSTile extends QuickSettingsTile implements LocationSettingsChange
         }
         mLocationMode = locationMode;
         mLocationEnabled = locationEnabled;
+>>>>>>> QS: let's welcome LocationTile to 4.4
         updateResources();
     }
 }
