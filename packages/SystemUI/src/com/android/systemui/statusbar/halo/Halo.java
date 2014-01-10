@@ -1352,7 +1352,7 @@ public class Halo extends FrameLayout implements Ticker.TickerCallback {
             // Status Bubbles
             if (statusAnimation) {
                 // Time
-                mEffect.mHaloStatusText.setColor(0xfff0f0f0);
+                mEffect.mHaloStatusText.setColor(0xff000000);
                 float div = 1 - ((float) mHaloTime.getAlpha()) / 225;
                 int timePosY = (int) (mIconHalfSize - mStatusBubbleT.getWidth() / 2 - mIconSize * div);
                 canvas.drawBitmap(mStatusBubbleT, mStatusB_X - mStatusBubbleT.getWidth() / 2, timePosY, mHaloTime);
@@ -1388,7 +1388,7 @@ public class Halo extends FrameLayout implements Ticker.TickerCallback {
                 if (!mEffect.getConnectionStatus()) {
                     mEffect.mHaloStatusText.setColor(0xff000000);
                 } else {
-                    mEffect.mHaloStatusText.setColor(0xfff0f0f0);
+                    mEffect.mHaloStatusText.setColor(0xff000000);
                 }
                 mHaloStatusText.setFakeBoldText(true);
                 mHaloStatusText.setTextSize(mStatusTextSize/1.5f);
@@ -1606,7 +1606,7 @@ public class Halo extends FrameLayout implements Ticker.TickerCallback {
                             tick(entry, HaloEffect.WAKE_TIME * 2, 1000, true, showMsgBox, false);
 
                             // Pop while not tasking, only if notification is certified fresh
-                            if (mGesture != GESTURE_TASK && mState != STATE_SILENT) mEffect.ping(mPaintHoloBlue, HaloEffect.WAKE_TIME * 2);
+                            if (mGesture != GESTURE_TASK && mState != STATE_SILENT) mEffect.ping(mPaintWhite, HaloEffect.WAKE_TIME * 2);
                         }
                     }
                     break;
@@ -1757,7 +1757,7 @@ public class Halo extends FrameLayout implements Ticker.TickerCallback {
                                 if (mHideTicker) mEffect.sleep(HaloEffect.SLEEP_DELAY + HaloEffect.WAKE_TIME * 2, HaloEffect.SLEEP_TIME, false);
                                 boolean showMsgBox = Settings.System.getInt(resolver, Settings.System.HALO_MSGBOX, 1) == 1;
                                 tick(entry, HaloEffect.WAKE_TIME * 2, 1000, false, showMsgBox, false);
-                                mEffect.ping(mPaintHoloBlue, HaloEffect.WAKE_TIME * 2);
+                                mEffect.ping(mPaintWhite, HaloEffect.WAKE_TIME * 2);
                                 mPingNewcomer = false;
                             }
                     }
