@@ -24,7 +24,7 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_gravity="bottom"
+    android:layout_gravity="top"
     android:contentDescription="@string/keyguard_accessibility_user_selector"
     android:visibility="gone">
 
@@ -32,8 +32,9 @@
         android:id="@+id/keyguard_users_grid"
         android:orientation="horizontal"
         android:layout_width="wrap_content"
-        android:layout_marginBottom="@dimen/keyguard_muliuser_selector_margin"
+        android:layout_marginTop="@dimen/keyguard_muliuser_selector_margin_top"
+        android:layout_marginLeft="@dimen/keyguard_muliuser_selector_margin"
         android:layout_height="@dimen/keyguard_avatar_size"
-        android:layout_gravity="center|bottom" />
+        android:layout_gravity="left|top" />
 
 </com.android.keyguard.KeyguardMultiUserSelectorView>
