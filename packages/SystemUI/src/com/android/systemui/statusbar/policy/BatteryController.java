@@ -37,10 +37,13 @@ public class BatteryController extends BroadcastReceiver {
     protected boolean mBatteryPresent = true;
 
     public interface BatteryStateChangeCallback {
-        public void onBatteryLevelChanged(boolean present, int level, boolean pluggedIn,
-                int status);
-        public void onBatteryMeterModeChanged(BatteryMeterMode mode);
+        public void onBatteryLevelChanged(boolean present, int level, boolean pluggedIn, int status);
         public void onBatteryMeterShowPercent(boolean showPercent);
+        public void onBatteryMeterModeChanged(BatteryMeterMode mode);
+    }
+
+    public interface BatteryStateChangeCallback2 {
+        public void onBatteryLevelChanged(boolean present, int level, boolean pluggedIn, int status);
     }
 
     public BatteryController(Context context) {
