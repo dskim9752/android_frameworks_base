@@ -23,6 +23,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.UserHandle;
 import android.provider.AlarmClock;
 import android.provider.Settings;
 import android.text.Spannable;
@@ -125,7 +127,7 @@ public class Clock extends TextView implements DemoMode, OnClickListener, OnLong
              }
         };
         Timer timer = new Timer();
-        timer.schedule(second, 0, 1000); 
+        timer.schedule(second, 0, 1001); 
     }
 
     @Override
