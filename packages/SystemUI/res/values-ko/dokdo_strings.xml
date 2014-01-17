@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2013-2014 Dokdo Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Weather tile panel String -->
+    <string name="need_to_update_weather">날씨를 업데이트 해주세요.</string>
+    <string name="no_weather_file">날씨 파일이 없습니다.</string>
+    <string name="weather_notify">알림</string>
+    <string name="weather_ok">확인</string>
+    <string name="weather_link">바로가기</string>
+    <string name="weather_dialog_msg">잠금시계위젯의 날씨패널이 꺼져있거나 날씨정보가 저장된 것 같지 않습니다.\n 날씨패널을 꾹 눌러 나오는 설정메뉴의 날씨패널에서 날씨설정을 활성화 해주세요.</string>
+
+    <!-- Weather - Weather codes -->
+    <string name="weather_0">폭풍</string>
+    <string name="weather_1">열대 폭풍</string>
+    <string name="weather_2">허리케인</string>
+    <string name="weather_3">심한 천둥번개</string>
+    <string name="weather_4">천둥번개</string>
+    <string name="weather_5">눈과 비</string>
+    <string name="weather_6">비와 진눈깨비</string>
+    <string name="weather_7">눈과 진눈개비</string>
+    <string name="weather_8">진눈깨비</string>
+    <string name="weather_9">약한 비</string>
+    <string name="weather_10">찬 비</string>
+    <string name="weather_11">소나기</string>
+    <string name="weather_12">소나기</string>
+    <string name="weather_13">강한 눈바람</string>
+    <string name="weather_14">약한 소나기</string>
+    <string name="weather_15">눈보라</string>
+    <string name="weather_16">눈</string>
+    <string name="weather_17">우박</string>
+    <string name="weather_18">진눈깨비</string>
+    <string name="weather_19">흙먼지</string>
+    <string name="weather_20">흐림</string>
+    <string name="weather_21">안개</string>
+    <string name="weather_22">짙은안개</string>
+    <string name="weather_23">강한바람</string>
+    <string name="weather_24">바람</string>
+    <string name="weather_25">한랭</string>
+    <string name="weather_26">흐림</string>
+    <string name="weather_27">대체로 흐림</string> <!-- Night -->
+    <string name="weather_28">대체로 흐림</string> <!-- Day -->
+    <string name="weather_29">가끔 흐림</string> <!-- Night -->
+    <string name="weather_30">가끔 흐림</string> <!-- Day -->
+    <string name="weather_31">맑음</string> <!-- Night -->
+    <string name="weather_32">햇빛이 강함</string>
+    <string name="weather_33">맑고 깨끗함</string> <!-- Night -->
+    <string name="weather_34">맑고 깨끗함</string> <!-- Day -->
+    <string name="weather_35">많은 비와 바람</string>
+    <string name="weather_36">더움</string>
+    <string name="weather_37">한때 천둥번개</string>
+    <string name="weather_38">심한 천둥번개</string>
+    <string name="weather_39">심한 천둥번개</string>
+    <string name="weather_40">한때 소나기</string>
+    <string name="weather_41">많은 눈</string>
+    <string name="weather_42">한때 많은 눈</string>
+    <string name="weather_43">한때 많은 눈</string>
+    <string name="weather_44">대체로 흐림</string>
+    <string name="weather_45">천둥을 동반한 강한비</string>
+    <string name="weather_46">비와 눈</string>
+    <string name="weather_47">한때 한때 천둥을 동반한 강한 비</string>
+</resources>

@@ -177,5 +177,13 @@
         <!-- Note: must be dp to fit in status bar -->
         <item name="android:textSize">14dp</item>
     </style>
-    
+
+    <style name="TextAppearance.QuickSettings.TileView.Weather">
+        <item name="android:textSize">11dp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">#CCCCCC</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:paddingStart">5dp</item>
+        <item name="android:paddingEnd">5dp</item>
+    </style>
 </resources>
