@@ -3054,6 +3054,13 @@ public final class Settings {
         public static final String STATUS_BAR_NETWORK_STATS_UPDATE_INTERVAL = "status_bar_network_stats_update_frequency";
 
         /**
+         * OverScroll Glow Color
+         * @hide
+         */
+        public static final String OVERSCROLL_GLOW_COLOR = "overscroll_glow_color";
+
+
+        /**
          * Display percentage in text of the battery level on the status bar
          * HALO enabled, should default to 0 (no, HALO is disabled)
          * @hide
