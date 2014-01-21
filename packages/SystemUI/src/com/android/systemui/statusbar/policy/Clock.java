@@ -78,12 +78,8 @@ public class Clock extends TextView implements DemoMode, OnClickListener, OnLong
     public static final int CLOCK_DATE_STYLE_LOWERCASE = 1;
     public static final int CLOCK_DATE_STYLE_UPPERCASE = 2;
 
-    public static final int STYLE_CLOCK_RIGHT   = 0;
-    public static final int STYLE_CLOCK_CENTER  = 1;
-
     protected int mClockDateDisplay = CLOCK_DATE_DISPLAY_GONE;
     protected int mClockDateStyle = CLOCK_DATE_STYLE_UPPERCASE;
-    protected int mClockStyle = STYLE_CLOCK_RIGHT;
     protected boolean mShowClock;
 
     private int mAmPmStyle;
@@ -103,9 +99,6 @@ public class Clock extends TextView implements DemoMode, OnClickListener, OnLong
             resolver.registerContentObserver(Settings.System
                     .getUriFor(Settings.System.STATUS_BAR_AM_PM),
                     false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System
-                    .getUriFor(Settings.System.STATUSBAR_CLOCK_STYLE), false,
-                    this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System
                     .getUriFor(Settings.System.STATUSBAR_CLOCK_DATE_DISPLAY), false,
                     this, UserHandle.USER_ALL);
@@ -356,22 +349,12 @@ public class Clock extends TextView implements DemoMode, OnClickListener, OnLong
             mClockFormatString = "";
         }
 
-        mClockStyle = Settings.System.getIntForUser(resolver,
-                Settings.System.STATUSBAR_CLOCK_STYLE, STYLE_CLOCK_RIGHT,
-                UserHandle.USER_CURRENT);
         mClockDateDisplay = Settings.System.getIntForUser(resolver,
                 Settings.System.STATUSBAR_CLOCK_DATE_DISPLAY, CLOCK_DATE_DISPLAY_GONE,
                 UserHandle.USER_CURRENT);
         mClockDateStyle = Settings.System.getIntForUser(resolver,
                 Settings.System.STATUSBAR_CLOCK_DATE_STYLE, CLOCK_DATE_STYLE_UPPERCASE,
                 UserHandle.USER_CURRENT);
-    }
-  
-    protected void updateClockVisibility() {
-        if (mClockStyle == STYLE_CLOCK_RIGHT && mShowClock)
-            setVisibility(View.VISIBLE);
-        else
-            setVisibility(View.GONE);
     }
 
     private void collapseStartActivity(Intent what) {
