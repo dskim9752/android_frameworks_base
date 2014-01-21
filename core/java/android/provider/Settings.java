@@ -3021,15 +3021,6 @@ public final class Settings {
         public static final String STATUS_BAR_AM_PM = "status_bar_am_pm";
 
         /**
-         * Style of clock
-         * 0 - Hide Clock
-         * 1 - Right Clock
-         * 2 - Center Clock
-         * @hide
-         */
-        public static final String STATUSBAR_CLOCK_STYLE = "statusbar_clock_style";
-
-        /**
          * @hide
          * Shows custom date before clock time
          * 0 - No Date
