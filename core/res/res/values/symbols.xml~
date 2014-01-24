@@ -2001,9 +2001,10 @@
   <java-symbol type="string" name="privacy_guard_dialog_title" />
   <java-symbol type="string" name="privacy_guard_dialog_summary" />
 
+<<<<<<< HEAD
   <!-- SMS RIL_REQUEST_SEND_SMS_EXPECT_MORE -->
   <java-symbol type="bool" name="config_smsUseExpectMore" />
-
+=======
   <!-- Progress Bar -->
   <java-symbol type="dimen" name="spb_default_stroke_width" />
   <java-symbol type="dimen" name="spb_default_stroke_separator_length" />
@@ -2026,4 +2027,5 @@
   <java-symbol type="color" name="holo_purple_dark" />
   <java-symbol type="color" name="holo_red_dark" />
 
+>>>>>>> SmoothProgressBar: Initial Commit
 </resources>
