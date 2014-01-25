@@ -1,5 +1,7 @@
 /*
  * Copyright (C) 2006 The Android Open Source Project
+ * This code has been modified. Portions copyright (C) 2013-2014, Dokdo Project - Gwon Hyeok
+ * Thx to castorflex (github.com/castorflex/SmoothProgressBar
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
