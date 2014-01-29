@@ -3142,11 +3142,25 @@ public final class Settings {
         public static final String PROGRESSBAR_COLOR_4 = "progressbar_color_4";
 
 	/**
+	*
+	* NavBar Height
+	* @hide
+	*/
+	public static final String NAVIGATION_BAR_HEIGHT = "navigation_bar_height";
+
+        /**
+        *
+        * NavBar Width
+        * @hide
+        */
+        public static final String NAVIGATION_BAR_WIDTH = "navigation_bar_width";
+
+	/**
          * Whether to show the network status in the status bar
          * @hide
          */
         public static final String STATUS_BAR_NETWORK_STATS = "status_bar_network_stats";
- 
+
         /**
          * Frequency at which stats are updated, in milliseconds
          * @hide
