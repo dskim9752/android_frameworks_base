@@ -223,7 +223,8 @@ public class BatteryMeterView extends View implements DemoMode {
         mShowPercent = ENABLE_PERCENT && 0 != Settings.System.getInt(
                 context.getContentResolver(), "status_bar_show_battery_percent", 0);
 
-        mChargeColor = getResources().getColor(R.color.batterymeter_charge_color);
+        mChargeColor =
+	Settings.System.getInt(mContext.getContentResolver(), Settings.System.STATUS_BAR_BATTERYMETER_CHARGE_COLOR, getResources().getColor(R.color.batterymeter_charge_color));
 
         mWarningString = context.getString(R.string.battery_meter_very_low_overlay_symbol);
 
@@ -410,7 +411,8 @@ public class BatteryMeterView extends View implements DemoMode {
             mDisposed = false;
 
             mFramePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-            mFramePaint.setColor(res.getColor(R.color.batterymeter_frame_color));
+	    int framecolor = Settings.System.getInt(mContext.getContentResolver(), Settings.System.STATUS_BAR_BATTERYMETER_FRAME_COLOR, res.getColor(R.color.batterymeter_frame_color));
+            mFramePaint.setColor(framecolor);
             mFramePaint.setDither(true);
             mFramePaint.setStrokeWidth(0);
             mFramePaint.setStyle(Paint.Style.FILL_AND_STROKE);
@@ -422,7 +424,8 @@ public class BatteryMeterView extends View implements DemoMode {
             mBatteryPaint.setStyle(Paint.Style.FILL_AND_STROKE);
 
             mTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-            mTextPaint.setColor(res.getColor(R.color.batterymeter_bolt_color));
+            int boltcolor = Settings.System.getInt(mContext.getContentResolver(), Settings.System.STATUS_BAR_BATTERYMETER_BOLT_COLOR, res.getColor(R.color.batterymeter_bolt_color));
+	    mTextPaint.setColor(boltcolor);
             Typeface font = Typeface.create("sans-serif-condensed", Typeface.BOLD);
             mTextPaint.setTypeface(font);
             mTextPaint.setTextAlign(Paint.Align.CENTER);
@@ -435,7 +438,7 @@ public class BatteryMeterView extends View implements DemoMode {
 
             mBoltPaint = new Paint();
             mBoltPaint.setAntiAlias(true);
-            mBoltPaint.setColor(res.getColor(R.color.batterymeter_bolt_color));
+            mBoltPaint.setColor(boltcolor);
             mBoltPoints = loadBoltPoints(res);
         }
 
@@ -651,7 +654,8 @@ public class BatteryMeterView extends View implements DemoMode {
             mFrontPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_ATOP));
 
             mBackPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-            mBackPaint.setColor(res.getColor(R.color.batterymeter_frame_color));
+            int framecolor = Settings.System.getInt(mContext.getContentResolver(), Settings.System.STATUS_BAR_BATTERYMETER_FRAME_COLOR, res.getColor(R.color.batterymeter_frame_color));
+            mBackPaint.setColor(framecolor);
             mBackPaint.setStrokeCap(Paint.Cap.BUTT);
             mBackPaint.setDither(true);
             mBackPaint.setStrokeWidth(0);
@@ -660,7 +664,8 @@ public class BatteryMeterView extends View implements DemoMode {
 
             mBoltPaint = new Paint();
             mBoltPaint.setAntiAlias(true);
-            mBoltPaint.setColor(getColorForLevel(50));
+            int boltcolor = Settings.System.getInt(mContext.getContentResolver(), Settings.System.STATUS_BAR_BATTERYMETER_CIRCLE_BOLT_COLOR, getColorForLevel(50));
+            mBoltPaint.setColor(boltcolor);
             mBoltPoints = loadBoltPoints(res);
         }
 
@@ -849,7 +854,8 @@ public class BatteryMeterView extends View implements DemoMode {
 
             mBackPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
             mBackPaint.setTextAlign(Paint.Align.RIGHT);
-            mBackPaint.setColor(res.getColor(R.color.batterymeter_frame_color));
+            int framecolor = Settings.System.getInt(mContext.getContentResolver(), Settings.System.STATUS_BAR_BATTERYMETER_FRAME_COLOR, res.getColor(R.color.batterymeter_frame_color));
+            mBackPaint.setColor(framecolor);
             mBackPaint.setTextSize(16.0f * dm.density);
 
             mFrontPaint = new Paint(mBackPaint);

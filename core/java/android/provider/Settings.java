@@ -3116,6 +3116,30 @@ public final class Settings {
         */
         public static final String STATUS_BAR_AIRPLAIN_COLOR = "status_bar_airplain_color";
 
+        /**
+        * Statusbar Batterymeter Circle Frame Color
+        * @hide
+        */
+        public static final String STATUS_BAR_BATTERYMETER_FRAME_COLOR = "status_bar_batterymeter_frame_color";
+
+	/**
+        * Statusbar Batterymeter Circle Bolt Color
+        * @hide
+        */
+        public static final String STATUS_BAR_BATTERYMETER_CIRCLE_BOLT_COLOR = "status_bar_batterymeter_circle_bolt_color";
+
+	/**
+        * Statusbar Batterymeter Charge Color
+        * @hide
+        */
+        public static final String STATUS_BAR_BATTERYMETER_CHARGE_COLOR = "status_bar_batterymeter_charge_color";
+
+        /**
+        * Statusbar Batterymeter Bolt Color
+        * @hide
+        */
+        public static final String STATUS_BAR_BATTERYMETER_BOLT_COLOR = "status_bar_batterymeter_bolt_color";
+
 	/**
          * Whether to show the network status in the status bar
          * @hide
