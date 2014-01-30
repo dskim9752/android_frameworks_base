@@ -3087,6 +3087,12 @@ public final class Settings {
         public static final String NAVIGATION_BAR_WIDTH = "navigation_bar_width";
 
 	/**
+	* Statusbar Clock Color
+	* @hide
+	*/
+	public static final String STATUS_BAR_CLOCK_COLOR = "status_bar_clock_color";
+
+	/**
          * Whether to show the network status in the status bar
          * @hide
          */
