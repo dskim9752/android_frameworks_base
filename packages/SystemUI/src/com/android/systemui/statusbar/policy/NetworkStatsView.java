@@ -22,6 +22,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.database.ContentObserver;
+import android.graphics.PorterDuff.Mode;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.TrafficStats;
@@ -29,6 +30,7 @@ import android.os.Handler;
 import android.provider.Settings;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.android.systemui.R;
@@ -41,6 +43,8 @@ public class NetworkStatsView extends LinearLayout {
     private boolean mAttached;      // whether or not attached to a window
     private boolean mActivated;     // whether or not activated due to system settings
 
+    private ImageView mImageViewin;
+    private ImageView mImageViewout;
     private TextView mTextViewTx;
     private TextView mTextViewRx;
     private long mLastTx;
@@ -131,7 +135,9 @@ public class NetworkStatsView extends LinearLayout {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        mTextViewTx = (TextView) findViewById(R.id.bytes_tx);
+        mImageViewin = (ImageView) findViewById(R.id.net_out_dr);
+	mImageViewout = (ImageView) findViewById(R.id.net_in_dr);
+	mTextViewTx = (TextView) findViewById(R.id.bytes_tx);
         mTextViewRx = (TextView) findViewById(R.id.bytes_rx);
     }
 
@@ -190,7 +196,10 @@ public class NetworkStatsView extends LinearLayout {
             units = "KB/s";
             fSpeed = fSpeed / TrafficStats.KB_IN_BYTES;
         }
-
+	int Color = Settings.System.getInt(mContext.getContentResolver(), Settings.System.STATUS_BAR_SHOW_NETWORK_STATS_COLOR, -1);
+	mImageViewin.setColorFilter(Color, Mode.MULTIPLY);
+        mImageViewout.setColorFilter(Color, Mode.MULTIPLY);
+	tv.setTextColor(Color);
         tv.setText(fSpeed == (int) fSpeed ?
                 String.format("%d %s", (int)fSpeed, units) :
                 String.format("%.1f %s", fSpeed, units));

@@ -3093,6 +3093,12 @@ public final class Settings {
 	public static final String STATUS_BAR_CLOCK_COLOR = "status_bar_clock_color";
 
 	/**
+	* Network Traffic Meter Color
+	* @hide
+	*/
+	public static final String STATUS_BAR_SHOW_NETWORK_STATS_COLOR = "status_bar_show_network_stats_color";
+
+	/**
          * Whether to show the network status in the status bar
          * @hide
          */
