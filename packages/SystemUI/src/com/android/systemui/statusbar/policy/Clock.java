@@ -220,6 +220,7 @@ public class Clock extends TextView implements DemoMode, OnClickListener, OnLong
         if (mDemoMode) return;
         mCalendar.setTimeInMillis(System.currentTimeMillis());
         setText(getSmallTime());
+	setTextColor(Settings.System.getInt(mContext.getContentResolver(), Settings.System.STATUS_BAR_CLOCK_COLOR, -1));
     }
 
     private final CharSequence getSmallTime() {
