@@ -1389,7 +1389,7 @@ public class NetworkController extends BroadcastReceiver implements DemoMode {
             N = mPhoneSignalIconViews.size();
             for (int i=0; i<N; i++) {
                 final ImageView v = mPhoneSignalIconViews.get(i);
-                if (mPhoneSignalIconId == 0) {
+		if (mPhoneSignalIconId == 0) {
                     v.setVisibility(View.GONE);
                 } else {
                     v.setVisibility(View.VISIBLE);

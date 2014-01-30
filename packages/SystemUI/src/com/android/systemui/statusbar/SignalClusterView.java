@@ -19,6 +19,8 @@
 package com.android.systemui.statusbar;
 
 import android.content.Context;
+import android.graphics.PorterDuff.Mode;
+import android.provider.Settings;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -184,6 +186,7 @@ public class SignalClusterView
         if (mMobile != null) {
             mMobile.setImageDrawable(null);
         }
+
         if (mMobileActivity != null) {
             mMobileActivity.setImageDrawable(null);
         }
@@ -208,7 +211,10 @@ public class SignalClusterView
 
         if (mWifiVisible) {
             mWifi.setImageResource(mWifiStrengthId);
-            mWifiActivity.setImageResource(mWifiActivityId);
+	    mWifiActivity.setImageResource(mWifiActivityId);
+	    int Color = Settings.System.getInt(mContext.getContentResolver(), Settings.System.STATUS_BAR_WIFI_COLOR, -1);
+            mWifi.setColorFilter(Color, Mode.MULTIPLY);
+            mWifiActivity.setColorFilter(Color, Mode.MULTIPLY);
 
             mWifiGroup.setContentDescription(mWifiDescription);
             mWifiGroup.setVisibility(View.VISIBLE);
@@ -222,9 +228,13 @@ public class SignalClusterView
                     mWifiStrengthId, mWifiActivityId));
 
         if (mMobileVisible && !mIsAirplaneMode) {
+            int Color = Settings.System.getInt(mContext.getContentResolver(), Settings.System.STATUS_BAR_DATA_COLOR, -1);
             mMobile.setImageResource(mMobileStrengthId);
-            mMobileActivity.setImageResource(mMobileActivityId);
+	    mMobileActivity.setImageResource(mMobileActivityId);
             mMobileType.setImageResource(mMobileTypeId);
+            mMobile.setColorFilter(Color , Mode.MULTIPLY);
+	    mMobileActivity.setColorFilter(Color , Mode.MULTIPLY);
+	    mMobileType.setColorFilter(Color , Mode.MULTIPLY);
 
             mMobileGroup.setContentDescription(mMobileTypeDescription + " " + mMobileDescription);
             mMobileGroup.setVisibility(View.VISIBLE);
@@ -234,7 +244,9 @@ public class SignalClusterView
         }
 
         if (mIsAirplaneMode) {
+            int Color = Settings.System.getInt(mContext.getContentResolver(), Settings.System.STATUS_BAR_AIRPLAIN_COLOR, -1);
             mAirplane.setImageResource(mAirplaneIconId);
+            mAirplane.setColorFilter(Color , Mode.MULTIPLY);
             mAirplane.setVisibility(View.VISIBLE);
         } else {
             mAirplane.setVisibility(View.GONE);
