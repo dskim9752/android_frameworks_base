@@ -3098,6 +3098,24 @@ public final class Settings {
 	*/
 	public static final String STATUS_BAR_SHOW_NETWORK_STATS_COLOR = "status_bar_show_network_stats_color";
 
+        /**
+	* Statusbar Wifi Color
+        * @hide
+        */
+        public static final String STATUS_BAR_WIFI_COLOR = "status_bar_wifi_color";
+
+        /**
+        * Statusbar Data Color
+        * @hide
+        */
+        public static final String STATUS_BAR_DATA_COLOR = "status_bar_data_color";
+
+        /**
+        * Statusbar Airplain Color
+        * @hide
+        */
+        public static final String STATUS_BAR_AIRPLAIN_COLOR = "status_bar_airplain_color";
+
 	/**
          * Whether to show the network status in the status bar
          * @hide
