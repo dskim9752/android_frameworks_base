@@ -3180,6 +3180,12 @@ public final class Settings {
         public static final String STATUS_BAR_DATA_COLOR = "status_bar_data_color";
 
 	/**
+        * Statusbar Volume Color
+        * @hide
+        */
+	public static final String STATUS_BAR_VOLUME_COLOR = "status_bar_volume_color";
+
+	/**
         * Statusbar Airplain Color
         * @hide
         */
