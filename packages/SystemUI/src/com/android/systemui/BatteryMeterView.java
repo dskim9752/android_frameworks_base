@@ -411,7 +411,7 @@ public class BatteryMeterView extends View implements DemoMode {
             mDisposed = false;
 
             mFramePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-	    int framecolor = Settings.System.getInt(mContext.getContentResolver(), Settings.System.STATUS_BAR_BATTERYMETER_FRAME_COLOR, res.getColor(R.color.batterymeter_frame_color));
+	    int framecolor = Settings.System.getInt(mContext.getContentResolver(), Settings.System.STATUS_BAR_BATTERYMETER_NORMAL_FRAME_COLOR, res.getColor(R.color.batterymeter_frame_color));
             mFramePaint.setColor(framecolor);
             mFramePaint.setDither(true);
             mFramePaint.setStrokeWidth(0);

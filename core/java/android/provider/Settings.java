@@ -3191,6 +3191,12 @@ public final class Settings {
         */
         public static final String STATUS_BAR_BATTERYMETER_FRAME_COLOR = "status_bar_batterymeter_frame_color";
 
+        /**
+        * Statusbar Batterymeter Normal Frame Color
+        * @hide
+        */
+        public static final String STATUS_BAR_BATTERYMETER_NORMAL_FRAME_COLOR = "status_bar_batterymeter_normal_frame_color";
+
 	/**
         * Statusbar Batterymeter Circle Bolt Color
         * @hide
