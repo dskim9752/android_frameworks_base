@@ -17,6 +17,7 @@
 package com.android.systemui.statusbar;
 
 import android.content.Context;
+import android.provider.Settings;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -75,6 +76,8 @@ public class SignalClusterTextView extends LinearLayout implements
         if (mAirplaneMode || mDBm == 0) {
             mMobileGroup.setVisibility(View.GONE);
         } else if (mSignalClusterStyle == SignalClusterView.STYLE_TEXT) {
+            int Color = Settings.System.getInt(mContext.getContentResolver(), Settings.System.STATUS_BAR_DATA_COLOR, -1);
+	    mMobileSignalText.setTextColor(Color);
             mMobileGroup.setVisibility(View.VISIBLE);
             mMobileSignalText.setText(getSignalLevelString(mDBm));
         } else {
