@@ -24,6 +24,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.PorterDuff.Mode;
+import android.provider.Settings;
 import android.media.AudioManager;
 import android.os.Handler;
 import android.telephony.MSimTelephonyManager;
@@ -210,7 +212,8 @@ public class PhoneStatusBarPolicy {
 
     private final void updateVolume() {
         AudioManager audioManager = (AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);
-        final int ringerMode = audioManager.getRingerMode();
+        final int iconcolor = Settings.System.getInt(mContext.getContentResolver(), Settings.System.STATUS_BAR_VOLUME_COLOR, -1);
+	final int ringerMode = audioManager.getRingerMode();
         final boolean visible = ringerMode == AudioManager.RINGER_MODE_SILENT ||
                 ringerMode == AudioManager.RINGER_MODE_VIBRATE;
 
@@ -218,9 +221,11 @@ public class PhoneStatusBarPolicy {
         String contentDescription = null;
         if (ringerMode == AudioManager.RINGER_MODE_VIBRATE) {
             iconId = R.drawable.stat_sys_ringer_vibrate;
+            mContext.getResources().getDrawable(R.drawable.stat_sys_ringer_vibrate).setColorFilter(iconcolor , Mode.MULTIPLY);
             contentDescription = mContext.getString(R.string.accessibility_ringer_vibrate);
         } else {
             iconId =  R.drawable.stat_sys_ringer_silent;
+	    mContext.getResources().getDrawable(R.drawable.stat_sys_ringer_silent).setColorFilter(iconcolor , Mode.MULTIPLY);
             contentDescription = mContext.getString(R.string.accessibility_ringer_silent);
         }
 
