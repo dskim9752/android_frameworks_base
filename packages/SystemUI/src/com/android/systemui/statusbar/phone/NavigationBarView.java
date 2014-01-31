@@ -98,6 +98,7 @@ public class NavigationBarView extends LinearLayout {
     boolean mShowMenu;
     int mDisabledFlags = 0;
     int mNavigationIconHints = 0;
+    boolean mWasNotifsButtonVisible = false;
 
     private Drawable mBackIcon, mBackLandIcon, mBackAltIcon, mBackAltLandIcon;
     private Drawable mRecentIcon;
@@ -481,7 +482,8 @@ public class NavigationBarView extends LinearLayout {
             public void run() {
                 if (iconId == 1) iv.setImageResource(R.drawable.search_light_land);
                 else iv.setImageDrawable(mVertical ? mRecentAltLandIcon : mRecentAltIcon);
-                setVisibleOrGone(getNotifsButton(), iconId != 0);
+                mWasNotifsButtonVisible = iconId != 0 && ((mDisabledFlags & View.STATUS_BAR_DISABLE_HOME) != 0);
+                setVisibleOrGone(getNotifsButton(), mWasNotifsButtonVisible);
             }
         });
     }
@@ -541,9 +543,7 @@ public class NavigationBarView extends LinearLayout {
 
         setVisibleOrGone(getSearchLight(), showSearch);
         setVisibleOrGone(getCameraButton(), showCamera);
-        // Just hide view if neccessary - don't show it because that interferes with Keyguard
-        // which uses setButtonDrawable to decide whether it should be shown
-        if (!showNotifs) setVisibleOrGone(getNotifsButton(), showNotifs);
+        setVisibleOrGone(getNotifsButton(), showNotifs && mWasNotifsButtonVisible);
 
         mBarTransitions.applyBackButtonQuiescentAlpha(mBarTransitions.getMode(), true /*animate*/);
     }
