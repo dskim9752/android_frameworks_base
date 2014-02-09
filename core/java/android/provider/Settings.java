@@ -3153,6 +3153,12 @@ public final class Settings {
         public static final String STATUS_BAR_BATTERYMETER_BOLT_COLOR = "status_bar_batterymeter_bolt_color";
 
 	/**
+	* Weather Tile Icon
+	* @hide
+	*/
+	public static final String WEATHER_TILE_ICON = "weather_tile_icon";
+
+	/**
          * Whether to show the network status in the status bar
          * @hide
          */

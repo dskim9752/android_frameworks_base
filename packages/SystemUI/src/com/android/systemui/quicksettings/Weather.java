@@ -17,6 +17,7 @@
 package com.android.systemui.quicksettings;
 
 import android.app.Activity;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
@@ -27,6 +28,7 @@ import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -48,6 +50,7 @@ public class Weather extends QuickSettingsTile {
 
 	private final String TAG = "WeatherTile";
 	private final String PATH="/sdcard/Android/data/weather.txt";
+	private static String IconSet;
 
 	public Weather(Context context, QuickSettingsController qsc, Handler mhandler) {
 		super(context, qsc, R.layout.quick_settings_tile_weather);
@@ -61,7 +64,7 @@ public class Weather extends QuickSettingsTile {
 				}
 			}
 		};
-			
+
 		mOnLongClick = new View.OnLongClickListener() {
 			@Override
 			public boolean onLongClick(View v) {
@@ -102,7 +105,7 @@ public class Weather extends QuickSettingsTile {
 
         public void onTick(long millisUntilFinished) {
         }
-    	   
+
     	public void onFinish() {
     	   getinfo();
     	   }
@@ -139,11 +142,21 @@ public class Weather extends QuickSettingsTile {
 	        String current = st.nextToken();
 
                 //SETIMAGE
-		String resName = "@drawable/weather2_" + condition;
+		String resName = null;
+		IconSet = Settings.System.getString(mContext.getContentResolver(), Settings.System.WEATHER_TILE_ICON);
+		if ( IconSet == null) {
+			resName = "@drawable/weather_color_" + condition;
+		} else if ( IconSet.equals("color")) {
+                        resName = "@drawable/weather_color_" + condition;
+		} else if ( IconSet.equals("mono")) {
+                        resName = "@drawable/weather_" + condition;
+		} else if ( IconSet.equals("vclouds")) {
+                        resName = "@drawable/weather_vclouds_" + condition;
+		}
 		String packName = mContext.getPackageName();
 		int resID = mContext.getResources().getIdentifier(resName, "drawable", packName);
 		iv.setImageResource(resID);
-		
+
 		//GET CONDITION TEXT
 		String ConditionStringresName = "@string/weather_" + condition;
 		int ConditionStringresID = mContext.getResources().getIdentifier(ConditionStringresName, "string", packName);
@@ -160,7 +173,7 @@ public class Weather extends QuickSettingsTile {
 			setNofile();
 			}
 		}
-	
+
 	public void setNofile() {
 		TextView tv = (TextView) mTile.findViewById(R.id.text);
 		TextView tv1 = (TextView) mTile.findViewById(R.id.text1);
@@ -171,7 +184,19 @@ public class Weather extends QuickSettingsTile {
 		tv2.setText(R.string.no_weather_file);
 		tv1.setText("");
 		tv3.setText("");
-		iv.setImageResource(R.drawable.weather_na);
+	        String resName = null;
+                if ( IconSet == null) {
+                        resName = "@drawable/weather_color_na";
+                } else if ( IconSet.equals("color")) {
+                        resName = "@drawable/weather_color_na";
+                } else if ( IconSet.equals("mono")) {
+                        resName = "@drawable/weather_na";
+                } else if ( IconSet.equals("vclouds")) {
+                        resName = "@drawable/weather_vclouds_na";
+                }
+                String packName = mContext.getPackageName();
+                int resID = mContext.getResources().getIdentifier(resName, "drawable", packName);
+		iv.setImageResource(resID);
         }
 
 	public String Readfile(int num){
@@ -207,7 +232,7 @@ public class Weather extends QuickSettingsTile {
 			return isfile;
 		}
 	}
-	
+
 	public int getline(){
 		FileReader readFile;
 		BufferedReader br;
@@ -220,7 +245,6 @@ public class Weather extends QuickSettingsTile {
 			while((getLine = br.readLine()) != null){
 				line = line+1;
 				}
-			System.out.println("Linenum:"+line);
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
