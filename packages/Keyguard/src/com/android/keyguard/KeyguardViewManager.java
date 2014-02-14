@@ -240,7 +240,9 @@ public class KeyguardViewManager {
 
     public void setBackgroundBitmap(Bitmap bmp) {
         if (bmp != null) {
-            mBlurredImage = blurBitmap(bmp, bmp.getWidth() < 900 ? 14: 18);
+	int radius = Settings.System.getInt(mContext.getContentResolver(),
+		Settings.System.LOCKSCREEN_BLUR_RADIUS, 16);
+            mBlurredImage = blurBitmap(bmp, radius);
         } else {
             mBlurredImage = null;
         }
