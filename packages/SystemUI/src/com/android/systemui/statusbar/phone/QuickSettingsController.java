@@ -310,7 +310,7 @@ public class QuickSettingsController {
                     qs = new NetworkAdbTile(mContext, this);
                 }
             } else if (tile.equals(TILE_MUSIC)) {
-                qs = new MusicTile(mContext, this);
+                qs = new MusicTile(mContext, this, mHandler);
             } else if (tile.equals(TILE_INTERNALMEMORY)) {
                 qs = new InternalMemory(mContext, this);
             } else if (tile.equals(TILE_WEATHER)) {
