@@ -23,7 +23,6 @@ import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PorterDuff;
@@ -413,14 +412,7 @@ public class BatteryMeterView extends View implements DemoMode {
 
             mFramePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 	    int framecolor = Settings.System.getInt(mContext.getContentResolver(), Settings.System.STATUS_BAR_BATTERYMETER_NORMAL_FRAME_COLOR, res.getColor(R.color.batterymeter_frame_color));
-	    int red = (framecolor >> 16) & 0xFF;
-	    int green = (framecolor >> 8) & 0xFF;
-	    int blue = framecolor & 0xFF;
-	    Color NewColor = new Color();
-            if(framecolor != res.getColor(R.color.batterymeter_frame_color)){
-            framecolor = NewColor.argb(102, red, green, blue);
-            }
-	    mFramePaint.setColor(framecolor);
+            mFramePaint.setColor(framecolor);
             mFramePaint.setDither(true);
             mFramePaint.setStrokeWidth(0);
             mFramePaint.setStyle(Paint.Style.FILL_AND_STROKE);
@@ -433,13 +425,6 @@ public class BatteryMeterView extends View implements DemoMode {
 
             mTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
             int boltcolor = Settings.System.getInt(mContext.getContentResolver(), Settings.System.STATUS_BAR_BATTERYMETER_BOLT_COLOR, res.getColor(R.color.batterymeter_bolt_color));
-            int Boltred = (boltcolor >> 16) & 0xFF;
-            int Boltgreen = (boltcolor >> 8) & 0xFF;
-            int Boltblue = boltcolor & 0xFF;
-            Color BolNewColor = new Color();
-            if(boltcolor != res.getColor(R.color.batterymeter_bolt_color)){
-            boltcolor = BolNewColor.argb(178, Boltred, Boltgreen, Boltblue);
-            }
 	    mTextPaint.setColor(boltcolor);
             Typeface font = Typeface.create("sans-serif-condensed", Typeface.BOLD);
             mTextPaint.setTypeface(font);
@@ -670,14 +655,7 @@ public class BatteryMeterView extends View implements DemoMode {
 
             mBackPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
             int framecolor = Settings.System.getInt(mContext.getContentResolver(), Settings.System.STATUS_BAR_BATTERYMETER_FRAME_COLOR, res.getColor(R.color.batterymeter_frame_color));
-            int red = (framecolor >> 16) & 0xFF;
-            int green = (framecolor >> 8) & 0xFF;
-            int blue = framecolor & 0xFF;
-            Color NewColor = new Color();
-	    if(framecolor != res.getColor(R.color.batterymeter_frame_color)){
-            framecolor = NewColor.argb(102, red, green, blue);
-	    }
-	    mBackPaint.setColor(framecolor);
+            mBackPaint.setColor(framecolor);
             mBackPaint.setStrokeCap(Paint.Cap.BUTT);
             mBackPaint.setDither(true);
             mBackPaint.setStrokeWidth(0);
@@ -687,7 +665,7 @@ public class BatteryMeterView extends View implements DemoMode {
             mBoltPaint = new Paint();
             mBoltPaint.setAntiAlias(true);
             int boltcolor = Settings.System.getInt(mContext.getContentResolver(), Settings.System.STATUS_BAR_BATTERYMETER_CIRCLE_BOLT_COLOR, getColorForLevel(50));
-	    mBoltPaint.setColor(boltcolor);
+            mBoltPaint.setColor(boltcolor);
             mBoltPoints = loadBoltPoints(res);
         }
 
