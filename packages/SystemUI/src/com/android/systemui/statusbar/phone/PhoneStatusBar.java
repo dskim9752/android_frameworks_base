@@ -396,6 +396,16 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                     Settings.System.NAVBAR_LEFT_IN_LANDSCAPE), false, this);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.STATUS_BAR_CENTER_CLOCK), false, this);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.STATUS_BAR_BATTERYMETER_NORMAL_FRAME_COLOR), false, this);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.STATUS_BAR_BATTERYMETER_FRAME_COLOR), false, this);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.STATUS_BAR_BATTERYMETER_CIRCLE_BOLT_COLOR), false, this);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.STATUS_BAR_BATTERYMETER_CHARGE_COLOR), false, this);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.STATUS_BAR_BATTERYMETER_BOLT_COLOR), false, this);
             updateSettings();
         }
 
@@ -3197,6 +3207,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         boolean showPercent = Settings.System.getIntForUser(resolver,
                 Settings.System.STATUS_BAR_BATTERY_SHOW_PERCENT, 0, mCurrentUserId) == 1;
 
+        mBatteryView.setMode(BatteryMeterMode.BATTERY_METER_GONE);
         mBatteryView.setMode(mode);
         mBatteryController.onBatteryMeterModeChanged(mode);
         mBatteryView.setShowPercent(showPercent);
