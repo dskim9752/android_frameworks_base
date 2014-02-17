@@ -3141,6 +3141,13 @@ public final class Settings {
          */
         public static final String PROGRESSBAR_COLOR_4 = "progressbar_color_4";
 
+        /**
+         *
+         * SMOOTH PROGRESS BAR interpolator
+         * @hide
+         */
+        public static final String PROGRESSBAR_INTERPOLATOR = "progressbar_interpolator";
+
 	/**
 	*
 	* NavBar Height
