@@ -2026,4 +2026,7 @@
   <java-symbol type="color" name="holo_purple_dark" />
   <java-symbol type="color" name="holo_red_dark" />
 
+  <!-- DokdoDream -->
+  <java-symbol type="drawable" name="dokdo_dream" />
+
 </resources>
