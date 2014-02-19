@@ -3255,6 +3255,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         if (mNavigationBarView != null) {
         }
 
+        rebuildRecentsScreen();
+
         // recreate StatusBarIconViews.
         for (int i = 0; i < nIcons; i++) {
             StatusBarIcon icon = icons.get(i);
