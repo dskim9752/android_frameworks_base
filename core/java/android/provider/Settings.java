@@ -3171,6 +3171,12 @@ public final class Settings {
         */
         public static final String WEATHER_TILE_ICON = "weather_tile_icon";
 
+        /**
+        * ToastAnimation
+        * @hide
+        */
+        public static final String TOAST_ANIMATION = "toast_animation";
+
 	/**
          * Whether to show the network status in the status bar
          * @hide
