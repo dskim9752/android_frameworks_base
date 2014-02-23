@@ -24,6 +24,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.database.ContentObserver;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.UserHandle;
@@ -220,8 +221,13 @@ public class Clock extends TextView implements DemoMode, OnClickListener, OnLong
         if (mDemoMode) return;
         mCalendar.setTimeInMillis(System.currentTimeMillis());
         setText(getSmallTime());
+	if (Settings.System.getInt(mContext.getContentResolver(), Settings.System.STATUS_BAR_BOLD_CLOCK, 0) == 1) {
+	setTypeface(null, Typeface.BOLD);
+	} else {
+	setTypeface(null, Typeface.NORMAL);
+	}
 	setTextColor(Settings.System.getInt(mContext.getContentResolver(), Settings.System.STATUS_BAR_CLOCK_COLOR, -1));
-    }
+	}
 
     private final CharSequence getSmallTime() {
         Context context = getContext();
