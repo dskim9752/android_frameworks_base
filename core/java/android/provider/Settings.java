@@ -3184,6 +3184,12 @@ public final class Settings {
         public static final String STATUS_BAR_BOLD_CLOCK = "status_bar_bold_clock";
 
 	/**
+	 * Lockscreen Music Screen Switchable
+	 * @hide
+	 */
+	public static final String LOCKSCREEN_MUSIC_SWITCH ="lockscreen_music_switch";
+
+	/**
          * Whether to show the network status in the status bar
          * @hide
          */

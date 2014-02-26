@@ -1546,7 +1546,10 @@ public class KeyguardHostView extends KeyguardViewBase {
     }
 
     private void showAppropriateWidgetPage() {
-        final int state = mTransportState;
+	if (Settings.System.getInt(getContext().getContentResolver(), Settings.System.LOCKSCREEN_MUSIC_SWITCH, 1) == 0 ) {
+	mTransportState = TRANSPORT_INVISIBLE;
+	}
+	final int state = mTransportState;
         final boolean transportAdded = ensureTransportPresentOrRemoved(state);
         final int pageToShow = getAppropriateWidgetPage(state);
         if (!transportAdded) {
