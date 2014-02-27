@@ -400,44 +400,44 @@ public class Toast {
                 mParams.windowAnimations = com.android.internal.R.style.Animation_Toast_Fade;
                 break;
                 case 3:
-                mParams.windowAnimations = com.android.internal.R.style.Animation_Toast_SlideRight;
+                mParams.windowAnimations = com.android.internal.R.style.Animation_Toast_SlideLeftRight;
                 break;
                 case 4:
-                mParams.windowAnimations = com.android.internal.R.style.Animation_Toast_SlideLeft;
+                mParams.windowAnimations = com.android.internal.R.style.Animation_Toast_SlideRightLeft;
                 break;
                 case 5:
-                mParams.windowAnimations = com.android.internal.R.style.Animation_Toast_Xylon;
+                mParams.windowAnimations = com.android.internal.R.style.Animation_Toast_SlideRight;
                 break;
                 case 6:
-                mParams.windowAnimations = com.android.internal.R.style.Animation_Toast_Toko;
+                mParams.windowAnimations = com.android.internal.R.style.Animation_Toast_SlideLeft;
                 break;
                 case 7:
-                mParams.windowAnimations = com.android.internal.R.style.Animation_Toast_Tn;
+                mParams.windowAnimations = com.android.internal.R.style.Animation_Toast_Xylon;
                 break;
                 case 8:
-                mParams.windowAnimations = com.android.internal.R.style.Animation_Toast_Honami;
+                mParams.windowAnimations = com.android.internal.R.style.Animation_Toast_Toko;
                 break;
                 case 9:
-                mParams.windowAnimations = com.android.internal.R.style.Animation_Toast_FastFade;
+                mParams.windowAnimations = com.android.internal.R.style.Animation_Toast_Tn;
                 break;
                 case 10:
-                mParams.windowAnimations = com.android.internal.R.style.Animation_Toast_GrowFade;
+                mParams.windowAnimations = com.android.internal.R.style.Animation_Toast_Honami;
                 break;
                 case 11:
-                mParams.windowAnimations = com.android.internal.R.style.Animation_Toast_GrowFadeCenter;
+                mParams.windowAnimations = com.android.internal.R.style.Animation_Toast_FastFade;
                 break;
                 case 12:
-                mParams.windowAnimations = com.android.internal.R.style.Animation_Toast_GrowFadeBottom;
+                mParams.windowAnimations = com.android.internal.R.style.Animation_Toast_GrowFade;
                 break;
                 case 13:
+                mParams.windowAnimations = com.android.internal.R.style.Animation_Toast_GrowFadeCenter;
+                break;
+                case 14:
+                mParams.windowAnimations = com.android.internal.R.style.Animation_Toast_GrowFadeBottom;
+                break;
+                case 15:
                 mParams.windowAnimations = com.android.internal.R.style.Animation_Toast_Translucent;
                 break;
-		case 14:
-		mParams.windowAnimations = com.android.internal.R.style.Animation_Toast_SlideLeftRight;
-		break;
-		case 15:
-		mParams.windowAnimations = com.android.internal.R.style.Animation_Toast_SlideRightLeft;
-		break;
                 }
                 mParams.gravity = gravity;
                 if ((gravity & Gravity.HORIZONTAL_GRAVITY_MASK) == Gravity.FILL_HORIZONTAL) {
