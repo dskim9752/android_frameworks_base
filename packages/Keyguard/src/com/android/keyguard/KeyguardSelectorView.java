@@ -55,6 +55,7 @@ import android.widget.LinearLayout;
 
 import com.android.internal.telephony.IccCardConstants.State;
 import com.android.internal.util.cm.LockscreenTargetUtils;
+import com.android.internal.util.cm.TorchConstants;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.internal.widget.multiwaveview.GlowPadView;
 import com.android.internal.widget.multiwaveview.GlowPadView.OnTriggerListener;
@@ -214,14 +215,25 @@ public class KeyguardSelectorView extends LinearLayout implements KeyguardSecuri
                 new GestureDetector.SimpleOnGestureListener() {
             @Override
             public boolean onDoubleTap(MotionEvent e) {
-                PowerManager pm = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
-                if (pm != null) pm.goToSleep(e.getEventTime());
-                return true;
+		int doubletapoption = Settings.System.getInt(mContext.getContentResolver(), Settings.System.LOCKSCREEN_GLOWPAD_DOUBLETAP_OPTION, 0);
+ 		switch(doubletapoption) {
+		case 0:
+		PowerManager pm = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
+		if (pm != null) pm.goToSleep(e.getEventTime());
+		break;
+		case 1:
+		Intent i = new Intent(TorchConstants.ACTION_TOGGLE_STATE);
+		i.putExtra("strobe", false);
+		i.putExtra("bright", false);
+		mContext.sendBroadcast(i);
+		break;
+		}
+		return true;
             }
         });
 
         if (Settings.System.getInt(mContext.getContentResolver(),
-                    Settings.System.DOUBLE_TAP_SLEEP_GESTURE, 0) == 1) {
+                    Settings.System.DOUBLE_TAP_GLOWPAD_GESTURE, 0) == 1) {
             mGlowPadView.setOnTouchListener(new OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
