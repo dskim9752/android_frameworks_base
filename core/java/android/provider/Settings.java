@@ -3190,6 +3190,18 @@ public final class Settings {
 	public static final String LOCKSCREEN_MUSIC_SWITCH ="lockscreen_music_switch";
 
 	/**
+	 * Lockscreen Glowpad DoubleTap Option
+	 * @hide
+	 */
+	public static final String LOCKSCREEN_GLOWPAD_DOUBLETAP_OPTION = "lockscreen_glowpad_doubletap_option";
+
+	/**
+	 * Lockscreen Glowpad DoubleTap Gesture
+	 * @hide
+	 */
+	public static final String DOUBLE_TAP_GLOWPAD_GESTURE = "double_tap_glowpad_gesture";
+
+	/**
          * Whether to show the network status in the status bar
          * @hide
          */
