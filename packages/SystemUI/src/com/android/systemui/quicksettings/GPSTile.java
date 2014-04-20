@@ -53,32 +53,6 @@ public class GPSTile extends QuickSettingsTile implements LocationSettingsChange
         };
     }
 
-    private void changeLocationMode(){
-        int newMode;
-
-        switch(mCurrentMode){
-        case Settings.Secure.LOCATION_MODE_BATTERY_SAVING:
-            newMode = Settings.Secure.LOCATION_MODE_HIGH_ACCURACY;
-            break;
-        case Settings.Secure.LOCATION_MODE_HIGH_ACCURACY:
-            newMode = Settings.Secure.LOCATION_MODE_BATTERY_SAVING;
-            break;
-        case Settings.Secure.LOCATION_MODE_OFF:
-            newMode = Settings.Secure.LOCATION_MODE_SENSORS_ONLY;
-            break;
-        case Settings.Secure.LOCATION_MODE_SENSORS_ONLY:
-            newMode = Settings.Secure.LOCATION_MODE_OFF;
-            break;
-        default:
-            newMode = Settings.Secure.LOCATION_MODE_OFF;
-            break;
-        }
-
-        Settings.Secure.putInt(mContext.getContentResolver(),
-                Settings.Secure.LOCATION_MODE,
-                newMode);
-    }
-
     @Override
     void onPostCreate() {
         updateTile();
