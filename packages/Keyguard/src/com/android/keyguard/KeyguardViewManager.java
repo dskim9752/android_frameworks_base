@@ -356,7 +356,6 @@ public class KeyguardViewManager {
                 mCustomBackground = d;
                 if (d != null) {
                     d.setColorFilter(BACKGROUND_COLOR, PorterDuff.Mode.SRC_OVER);
->>>>>>> Frameworks: Lockscreen Blur
                 }
                 // no user wallpaper set
                 if (d == null) {
