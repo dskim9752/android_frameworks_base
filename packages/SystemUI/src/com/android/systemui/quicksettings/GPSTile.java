@@ -91,7 +91,6 @@ public class GPSTile extends QuickSettingsTile implements LocationSettingsChange
         mLabel = mContext.getText(textResId).toString();
     }
 
-
     @Override
     public void onLocationSettingsChanged(boolean locationEnabled, int locationMode) {
         // collapse all panels in case the confirmation dialog needs to show up
